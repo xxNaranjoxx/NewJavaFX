@@ -8,11 +8,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
-import java.io.IOException;
-
 public class HelloApplication extends Application {
     @Override
-    public void start(Stage primaryStage) throws IOException {
+    public void start(Stage primaryStage) {
         BorderPane root = new BorderPane();
 
         TableView table = new TableView<Estudiante>();
@@ -29,7 +27,7 @@ public class HelloApplication extends Application {
         telefonoColumn.setCellValueFactory(new PropertyValueFactory<Estudiante,String>("telefono"));
 
         TableColumn nicknameColumn = new TableColumn<Estudiante,String>("NickName");
-        nicknameColumn.setCellValueFactory(new PropertyValueFactory<Estudiante,String>("nickname"));
+        nicknameColumn.setCellValueFactory(new PropertyValueFactory<Estudiante,String>("nickName"));
 
         TableColumn tipoEstudianteColumn = new TableColumn<Estudiante,String>("Tipo Estudiante");
         tipoEstudianteColumn.setCellValueFactory(new PropertyValueFactory<Estudiante,String>("tipoEstudiante"));
@@ -44,20 +42,25 @@ public class HelloApplication extends Application {
 
         table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
 
-        table.getItems().add(new Estudiante_hijo(2022437585," Sebastian Naranjo Mora ", " naranjomoras@gmail.com ",  72968521 ," Hola "," A ",70,80));
+        table.getItems().add(new Estudiante(2022437585,"Sebastian Naranjo","naranjomoras@gmail.com",72968521,"Naranjo","A"));
+        table.getItems().add(new Estudiante(2022754385,"Luis Barboza","barbozaLuis@gmail.com",84539591,"Luis","B"));
+        table.getItems().add(new Estudiante(2022789345,"Wainer Chavarria","ChavarriaWainer@gmail.com",88967024,"Way","B"));
+        table.getItems().add(new Estudiante(2022123456,"Daniza Granados","DanizaGranados@gmail.com",83766048,"Dani","A"));
+        table.getItems().add(new Estudiante(2022863845,"Steven Jafet","sjnaranjo@gmail.com",87696359,"Steven","B"));
+
 
         root.setCenter(table);
 
 
-        Scene scene = new Scene(root, 850,300);
+        Scene scene = new Scene(root, 920,300);
         primaryStage.setTitle("Registro!");
         primaryStage.setScene(scene);
         primaryStage.show();
     }
 
     public static void main(String[] args) {
-        Estudiante_hijo est3 = new Estudiante_hijo(2022437585," Sebastian Naranjo Mora ", " naranjomoras@gmail.com ",  72968521 ," Naranjo "," A ",70,80);
-        est3.llamar();
+        LectorCSV archivo = new LectorCSV();
+        archivo.leerArhivocsv("C:\\Users\\Dani2\\OneDrive\\Escritorio\\Amor\\ejemplo_TEq.csv");
         launch();
     }
 }

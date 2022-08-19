@@ -1,13 +1,13 @@
 package application;
 
-public abstract class Estudiante {
+public class Estudiante {
 
-    int carne;
-    String nombreApellidos;
-    String correo;
-    int telefono;
-    String nickName;
-    String tipoEstudiante;
+    private int carne;//encapsulamiento
+    private String nombreApellidos;//encapsulamiento
+    private String correo;//encapsulamiento
+    private int telefono;//encapsulamiento
+    private String nickName;//encapsulamiento
+    private String tipoEstudiante;//encapsulamiento
 
     public Estudiante(int carne,String nombreApellidos,String correo, int telefono, String nickName, String tipoEstudiante) {
         this.carne = carne;
