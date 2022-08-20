@@ -5,7 +5,7 @@ public class Estudiante_hijo extends Estudiante{ //herencia de la clase padre (E
     private int nota2;//encapsulamiento
 
 
-    public Estudiante_hijo(String nombreApellidos,double carne, String correo, int telefono, String nickName, String tipoEstudiante, int nota1, int nota2) {
+    public Estudiante_hijo(String nombreApellidos,String carne, String correo, String telefono, String nickName, String tipoEstudiante, int nota1, int nota2) {
         super(nombreApellidos,carne, correo, telefono, nickName, tipoEstudiante);
         this.nota1 = nota1;
         this.nota2 = nota2;

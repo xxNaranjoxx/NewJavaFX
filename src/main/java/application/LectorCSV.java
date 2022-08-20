@@ -1,6 +1,6 @@
 package application;
 
-import javax.swing.JOptionPane;
+import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
@@ -36,9 +36,9 @@ public class LectorCSV {
     public static ArrayList<Estudiante> listaEstudiantes(Scanner sc){
         ArrayList<Estudiante> newStudent = new ArrayList<Estudiante>();
         String nombreApellidos;
-        double carne;
+        String carne;
         String correo;
-        double telefono;
+        String telefono;
         String nickName;
         String tipoEstudiante;
         Estudiante e;
@@ -47,11 +47,11 @@ public class LectorCSV {
             nombreApellidos= sc.nextLine();
             if (!nombreApellidos.equalsIgnoreCase("FIN")){
                 System.out.print("Carné");
-                carne = Double.parseDouble(sc.nextLine());
+                carne = sc.nextLine();
                 System.out.print("Correo");
                 correo= sc.nextLine();
                 System.out.print("Telefono");
-                telefono= Integer.parseInt(sc.nextLine());
+                telefono= sc.nextLine();
                 System.out.print("NickName");
                 nickName= sc.nextLine();
                 System.out.print("Tipo de Estudiante");
@@ -65,4 +65,6 @@ public class LectorCSV {
         }//do while
 
     }//Arraylist
+
+
 }//clase

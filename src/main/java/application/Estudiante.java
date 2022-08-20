@@ -3,13 +3,13 @@ package application;
 public class Estudiante {
 
     private String nombreApellidos;//encapsulamiento
-    private double carne;//encapsulamiento
+    private String carne;//encapsulamiento
     private String correo;//encapsulamiento
-    private double telefono;//encapsulamiento
+    private String telefono;//encapsulamiento
     private String nickName;//encapsulamiento
     private String tipoEstudiante;//encapsulamiento
 
-    public Estudiante(String nombreApellidos, double carne, String correo, double telefono, String nickName, String tipoEstudiante) {
+    public Estudiante(String nombreApellidos, String carne, String correo, String telefono, String nickName, String tipoEstudiante) {
         this.nombreApellidos = nombreApellidos;
         this.carne = carne;
         this.correo = correo;
@@ -22,11 +22,11 @@ public class Estudiante {
         return this.nombreApellidos + "," + this.carne + "," + this.correo + "," + this.telefono + "," + this.nickName + "," + this.tipoEstudiante;
     }//llamarArchivoCSV
 
-    public double getCarne() {
+    public String getCarne() {
         return carne;
     }
 
-    public void setCarne(int carne) {
+    public void setCarne(String carne) {
         this.carne = carne;
     }
 
@@ -46,11 +46,11 @@ public class Estudiante {
         this.correo = correo;
     }
 
-    public double getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(int telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 
