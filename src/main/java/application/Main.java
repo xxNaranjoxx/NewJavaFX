@@ -8,7 +8,15 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
-public class HelloApplication extends Application {
+import java.io.File;
+import java.io.FileWriter;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+import static application.LectorCSV.listaEstudiantes;
+import static java.lang.Integer.parseInt;
+
+public class Main extends Application {
     @Override
     public void start(Stage primaryStage) {
         BorderPane root = new BorderPane();
@@ -42,11 +50,11 @@ public class HelloApplication extends Application {
 
         table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
 
-        table.getItems().add(new Estudiante(2022437585,"Sebastian Naranjo","naranjomoras@gmail.com",72968521,"Naranjo","A"));
-        table.getItems().add(new Estudiante(2022754385,"Luis Barboza","barbozaLuis@gmail.com",84539591,"Luis","B"));
-        table.getItems().add(new Estudiante(2022789345,"Wainer Chavarria","ChavarriaWainer@gmail.com",88967024,"Way","B"));
-        table.getItems().add(new Estudiante(2022123456,"Daniza Granados","DanizaGranados@gmail.com",83766048,"Dani","A"));
-        table.getItems().add(new Estudiante(2022863845,"Steven Jafet","sjnaranjo@gmail.com",87696359,"Steven","B"));
+        table.getItems().add(new Estudiante("Sebastian Naranjo",2022437585,"naranjomoras@gmail.com",72968521,"Naranjo","A"));
+        table.getItems().add(new Estudiante("Luis Barboza",2022754385,"barbozaLuis@gmail.com",84539591,"Luis","B"));
+        table.getItems().add(new Estudiante("Wainer Chavarria",2022789345,"ChavarriaWainer@gmail.com",88967024,"Way","B"));
+        table.getItems().add(new Estudiante("Daniza Granados",2022123456,"DanizaGranados@gmail.com",83766048,"Dani","A"));
+        table.getItems().add(new Estudiante("Steven Jafet",2022863845,"sjnaranjo@gmail.com",87696359,"Steven","B"));
 
 
         root.setCenter(table);
@@ -56,11 +64,28 @@ public class HelloApplication extends Application {
         primaryStage.setTitle("Registro!");
         primaryStage.setScene(scene);
         primaryStage.show();
-    }
+    }//start
+
+
 
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        ArrayList<Estudiante> newStudent = listaEstudiantes(sc);
+        File arhivoCSV = new File("./ejemplo_TEq.csv");
+        try (FileWriter editor = new FileWriter(arhivoCSV);){
+            for (Estudiante estudiante : newStudent){
+                editor.write(estudiante.llamarArchivoCSV() + "\n");
+
+            }//for
+
+        } catch(Exception e){
+            System.out.println("Se produjo un error");
+
+        }//try-catch
+
+
         LectorCSV archivo = new LectorCSV();
-        archivo.leerArhivocsv("C:\\Users\\Dani2\\OneDrive\\Escritorio\\Amor\\ejemplo_TEq.csv");
-        launch();
-    }
-}
+        archivo.leerArhivocsv("./ejemplo_TEq.csv");
+        //launch();
+    }//fin main
+}//fin clase

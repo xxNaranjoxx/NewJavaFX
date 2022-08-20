@@ -2,27 +2,27 @@ package application;
 
 public class Estudiante {
 
-    private int carne;//encapsulamiento
     private String nombreApellidos;//encapsulamiento
+    private double carne;//encapsulamiento
     private String correo;//encapsulamiento
-    private int telefono;//encapsulamiento
+    private double telefono;//encapsulamiento
     private String nickName;//encapsulamiento
     private String tipoEstudiante;//encapsulamiento
 
-    public Estudiante(int carne,String nombreApellidos,String correo, int telefono, String nickName, String tipoEstudiante) {
-        this.carne = carne;
+    public Estudiante(String nombreApellidos, double carne, String correo, double telefono, String nickName, String tipoEstudiante) {
         this.nombreApellidos = nombreApellidos;
+        this.carne = carne;
         this.correo = correo;
         this.telefono = telefono;
         this.nickName = nickName;
         this.tipoEstudiante = tipoEstudiante;
     }//constructor con parametros
 
-    public void llamar(){
-        System.out.println("Hola desde" + this.carne+ this.nombreApellidos  + this.correo + this.telefono + this.nickName + this.tipoEstudiante);
-    }
+    public String llamarArchivoCSV(){
+        return this.nombreApellidos + "," + this.carne + "," + this.correo + "," + this.telefono + "," + this.nickName + "," + this.tipoEstudiante;
+    }//llamarArchivoCSV
 
-    public int getCarne() {
+    public double getCarne() {
         return carne;
     }
 
@@ -46,7 +46,7 @@ public class Estudiante {
         this.correo = correo;
     }
 
-    public int getTelefono() {
+    public double getTelefono() {
         return telefono;
     }
 

@@ -5,16 +5,13 @@ public class Estudiante_hijo extends Estudiante{ //herencia de la clase padre (E
     private int nota2;//encapsulamiento
 
 
-    public Estudiante_hijo(int carne, String nombreApellidos, String correo, int telefono, String nickName, String tipoEstudiante, int nota1, int nota2) {
-        super(carne, nombreApellidos, correo, telefono, nickName, tipoEstudiante);
+    public Estudiante_hijo(String nombreApellidos,double carne, String correo, int telefono, String nickName, String tipoEstudiante, int nota1, int nota2) {
+        super(nombreApellidos,carne, correo, telefono, nickName, tipoEstudiante);
         this.nota1 = nota1;
         this.nota2 = nota2;
     }//constructor
 
-    @Override
-    public void llamar() {
-        System.out.println("Adios desde " + "" + this.getCarne() + "" + this.getNombreApellidos() + "" + this.getCorreo() + "" + this.getTelefono() + "" + this.getNickName() + "" + this.getTipoEstudiante() + "" + this.nota1 + " " + this.nota2);
-    }
+
 
     public int getNota1() {
         return nota1;
