@@ -291,12 +291,12 @@ public class Main extends Application {
 
         List<Estudiante> estudiantes = new ArrayList<Estudiante>();
 
-        estudiantes.add(new Estudiante("Sebastian Naranjo",2022437585,"naranjomoras@gmail.com",72968521,"Naranjo","A",90,90,90,nota_promedioExamenes,nota_promedioQuices,nota_promedioTareas,nota_promedioProyecto,nota_promedioEvaluaciones,nota_promedioFinal));
-        estudiantes.add(new Estudiante("Luis Barboza",2022754385,"barbozaLuis@gmail.com",84539591,"Luis","B",90,90,90,nota_promedioExamenes2,nota_promedioQuices2,nota_promedioTareas2,nota_promedioProyecto2,nota_promedioEvaluaciones2,nota_promedioFinal2));
-        estudiantes.add(new Estudiante("Wainer Chavarria",2022789345,"ChavarriaWainer@gmail.com",88967024,"Way","B",90,90,90,nota_promedioExamenes3,nota_promedioQuices3,nota_promedioTareas3,nota_promedioProyecto3,nota_promedioEvaluaciones3,nota_promedioFinal3));
-        estudiantes.add(new Estudiante("Daniza Granados",2022123456,"DanizaGranados@gmail.com",83766048,"Dani","A",90,90,90,nota_promedioExamenes4,nota_promedioQuices4,nota_promedioTareas4,nota_promedioProyecto4,nota_promedioEvaluaciones4,nota_promedioFinal4));
-        estudiantes.add(new Estudiante("Maria Eugenia Mora Garro",2022936587,"eugemoga@gmail.com",89459498,"Maru","A",90,90,90,nota_promedioExamenes5,nota_promedioQuices5,nota_promedioTareas5,nota_promedioProyecto5,nota_promedioEvaluaciones5,nota_promedioFinal5));
-        estudiantes.add(new Estudiante("Wallter Guillermo Naranjo Umaña",2022145748,"wgnu@gmail.com",87318048,"Memo","B",90,90,90,nota_promedioExamenes6,nota_promedioQuices6,nota_promedioTareas6,nota_promedioProyecto6,nota_promedioEvaluaciones6,nota_promedioFinal6));
+//        estudiantes.add(new Estudiante("Sebastian Naranjo",2022437585,"naranjomoras@gmail.com",72968521,"Naranjo","A",90,90,90,nota_promedioExamenes,nota_promedioQuices,nota_promedioTareas,nota_promedioProyecto,nota_promedioEvaluaciones,nota_promedioFinal));
+//        estudiantes.add(new Estudiante("Luis Barboza",2022754385,"barbozaLuis@gmail.com",84539591,"Luis","B",90,90,90,nota_promedioExamenes2,nota_promedioQuices2,nota_promedioTareas2,nota_promedioProyecto2,nota_promedioEvaluaciones2,nota_promedioFinal2));
+//        estudiantes.add(new Estudiante("Wainer Chavarria",2022789345,"ChavarriaWainer@gmail.com",88967024,"Way","B",90,90,90,nota_promedioExamenes3,nota_promedioQuices3,nota_promedioTareas3,nota_promedioProyecto3,nota_promedioEvaluaciones3,nota_promedioFinal3));
+//        estudiantes.add(new Estudiante("Daniza Granados",2022123456,"DanizaGranados@gmail.com",83766048,"Dani","A",90,90,90,nota_promedioExamenes4,nota_promedioQuices4,nota_promedioTareas4,nota_promedioProyecto4,nota_promedioEvaluaciones4,nota_promedioFinal4));
+//        estudiantes.add(new Estudiante("Maria Eugenia Mora Garro",2022936587,"eugemoga@gmail.com",89459498,"Maru","A",90,90,90,nota_promedioExamenes5,nota_promedioQuices5,nota_promedioTareas5,nota_promedioProyecto5,nota_promedioEvaluaciones5,nota_promedioFinal5));
+//        estudiantes.add(new Estudiante("Wallter Guillermo Naranjo Umaña",2022145748,"wgnu@gmail.com",87318048,"Memo","B",90,90,90,nota_promedioExamenes6,nota_promedioQuices6,nota_promedioTareas6,nota_promedioProyecto6,nota_promedioEvaluaciones6,nota_promedioFinal6));
 
         ExportarCSV(estudiantes);
 
