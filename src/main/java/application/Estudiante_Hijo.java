@@ -1,17 +1,18 @@
 package application;
 
-public class Estudiante_Hijo extends Estudiante {
-    private String notaExamen1;
-    private String notaExamen2;
-    private String notaQuiz1;
-    private String notaQuiz2;
-    private String notaQuiz3;
-    private String notaTarea1;
-    private String notaTarea2;
-    private String notaTarea3;
+public class Estudiante_Hijo extends Estudiante {//herencia
+    private int notaExamen1;
+    private int notaExamen2;
+    private int notaQuiz1;
+    private int notaQuiz2;
+    private int notaQuiz3;
+    private int notaTarea1;
+    private int notaTarea2;
+    private int notaTarea3;
 
-    public Estudiante_Hijo(String nombreApellidos, String carne, String correo, String telefono, String nickName, String tipoEstudiante, String promedioExamenes, String promedioQuices, String promedioTareas) {
-        super(nombreApellidos, carne, correo, telefono, nickName, tipoEstudiante, promedioExamenes, promedioQuices, promedioTareas);
+    public Estudiante_Hijo(String nombreApellidos, int carne, String correo, int telefono, String nickName, String tipoEstudiante, int notaProyecto1, int notaProyecto2, int notaProyecto3, int promedioExamenes, int promedioQuices, int promedioTareas,
+                           int notaExamen1,int notaExamen2,int notaQuiz1,int notaQuiz2,int notaQuiz3,int notaTarea1,int notaTarea2,int notaTarea3,int promedioProyectos, int promedioEvaluaciones, int promedioFinal) {
+        super(nombreApellidos, carne, correo, telefono, nickName, tipoEstudiante, notaProyecto1, notaProyecto2, notaProyecto3, promedioExamenes, promedioQuices, promedioTareas, promedioProyectos, promedioEvaluaciones, promedioFinal);
         this.notaExamen1 = notaExamen1;
         this.notaExamen2 = notaExamen2;
         this.notaQuiz1 = notaQuiz1;
@@ -23,83 +24,93 @@ public class Estudiante_Hijo extends Estudiante {
 
     }
 
-    public String getNotaExamen1() {
+
+    public int promedioExamenes(){
+        return (this.notaExamen1 + this.notaExamen2)/2;
+    }//promedioExamenes
+
+    public int promedioQuices(){
+        return (this.notaQuiz1 + this.notaQuiz2 + this.notaQuiz3)/3;
+    }//promedioQuices
+
+    public int promedioTareas(){
+        return (this.notaTarea1 + this.notaTarea1 + this.notaTarea1)/3;
+    }//promedioTareas
+
+
+    public int notaPromedioEvaluaciones(){
+        return (promedioExamenes() + promedioQuices() + promedioTareas())/3;
+    }//notaPromedio
+
+    public int notaPromedioFinal(){
+        return (promedioExamenes() + promedioQuices() + promedioTareas())/3;
+    }//notaPromedio
+
+    public int notaPromedioProyecto(){
+        return (this.getNotaProyecto1() + this.getNotaProyecto2() + this.getNotaProyecto3())/3;
+    }
+
+    public int getNotaExamen1() {
         return notaExamen1;
     }
 
-    public void setNotaExamen1(String notaExamen1) {
+    public void setNotaExamen1(int notaExamen1) {
         this.notaExamen1 = notaExamen1;
     }
 
-    public String getNotaExamen2() {
+    public int getNotaExamen2() {
         return notaExamen2;
     }
 
-    public void setNotaExamen2(String notaExamen2) {
+    public void setNotaExamen2(int notaExamen2) {
         this.notaExamen2 = notaExamen2;
     }
 
-    public String getNotaQuiz1() {
+    public int getNotaQuiz1() {
         return notaQuiz1;
     }
 
-    public void setNotaQuiz1(String notaQuiz1) {
+    public void setNotaQuiz1(int notaQuiz1) {
         this.notaQuiz1 = notaQuiz1;
     }
 
-    public String getNotaQuiz2() {
+    public int getNotaQuiz2() {
         return notaQuiz2;
     }
 
-    public void setNotaQuiz2(String notaQuiz2) {
+    public void setNotaQuiz2(int notaQuiz2) {
         this.notaQuiz2 = notaQuiz2;
     }
 
-    public String getNotaQuiz3() {
+    public int getNotaQuiz3() {
         return notaQuiz3;
     }
 
-    public void setNotaQuiz3(String notaQuiz3) {
+    public void setNotaQuiz3(int notaQuiz3) {
         this.notaQuiz3 = notaQuiz3;
     }
 
-    public String getNotaTarea1() {
+    public int getNotaTarea1() {
         return notaTarea1;
     }
 
-    public void setNotaTarea1(String notaTarea1) {
+    public void setNotaTarea1(int notaTarea1) {
         this.notaTarea1 = notaTarea1;
     }
 
-    public String getNotaTarea2() {
+    public int getNotaTarea2() {
         return notaTarea2;
     }
 
-    public void setNotaTarea2(String notaTarea2) {
+    public void setNotaTarea2(int notaTarea2) {
         this.notaTarea2 = notaTarea2;
     }
 
-    public String getNotaTarea3() {
+    public int getNotaTarea3() {
         return notaTarea3;
     }
 
-    public void setNotaTarea3(String notaTarea3) {
+    public void setNotaTarea3(int notaTarea3) {
         this.notaTarea3 = notaTarea3;
-    }
-
-
-
-    @Override
-    public String toString() {
-        return "Estudiante_Hijo{" +
-                "notaExamen1='" + notaExamen1 + '\'' +
-                ", notaExamen2='" + notaExamen2 + '\'' +
-                ", notaQuiz1='" + notaQuiz1 + '\'' +
-                ", notaQuiz2='" + notaQuiz2 + '\'' +
-                ", notaQuiz3='" + notaQuiz3 + '\'' +
-                ", notaTarea1='" + notaTarea1 + '\'' +
-                ", notaTarea2='" + notaTarea2 + '\'' +
-                ", notaTarea3='" + notaTarea3 + '\'' +
-                '}';
     }
 }//fin clase
