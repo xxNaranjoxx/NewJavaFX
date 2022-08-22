@@ -8,26 +8,21 @@ public class Estudiante {
     private String telefono;//encapsulamiento
     private String nickName;//encapsulamiento
     private String tipoEstudiante;//encapsulamiento
+    private  String promedioExamenes;
+    private String promedioQuices;
+    private String promedioTareas;
 
-    public Estudiante(String nombreApellidos, String carne, String correo, String telefono, String nickName, String tipoEstudiante) {
+
+    public Estudiante(String nombreApellidos, String carne, String correo, String telefono, String nickName, String tipoEstudiante, String promedioExamenes, String promedioQuices, String promedioTareas) {
         this.nombreApellidos = nombreApellidos;
         this.carne = carne;
         this.correo = correo;
         this.telefono = telefono;
         this.nickName = nickName;
         this.tipoEstudiante = tipoEstudiante;
-    }//constructor con parametros
-
-    public String llamarArchivoCSV(){
-        return this.nombreApellidos + "," + this.carne + "," + this.correo + "," + this.telefono + "," + this.nickName + "," + this.tipoEstudiante;
-    }//llamarArchivoCSV
-
-    public String getCarne() {
-        return carne;
-    }
-
-    public void setCarne(String carne) {
-        this.carne = carne;
+        this.promedioExamenes = promedioExamenes;
+        this.promedioQuices = promedioQuices;
+        this.promedioTareas = promedioTareas;
     }
 
     public String getNombreApellidos() {
@@ -36,6 +31,14 @@ public class Estudiante {
 
     public void setNombreApellidos(String nombreApellidos) {
         this.nombreApellidos = nombreApellidos;
+    }
+
+    public String getCarne() {
+        return carne;
+    }
+
+    public void setCarne(String carne) {
+        this.carne = carne;
     }
 
     public String getCorreo() {
@@ -69,4 +72,33 @@ public class Estudiante {
     public void setTipoEstudiante(String tipoEstudiante) {
         this.tipoEstudiante = tipoEstudiante;
     }
+
+    public String getPromedioExamenes() {
+        return promedioExamenes;
+    }
+
+    public void setPromedioExamenes(String promedioExamenes) {
+        this.promedioExamenes = promedioExamenes;
+    }
+
+    public String getPromedioQuices() {
+        return promedioQuices;
+    }
+
+    public void setPromedioQuices(String promedioQuices) {
+        this.promedioQuices = promedioQuices;
+    }
+
+    public String getPromedioTareas() {
+        return promedioTareas;
+    }
+
+    public void setPromedioTareas(String promedioTareas) {
+        this.promedioTareas = promedioTareas;
+    }
+
+    public String llamarArchivoCSV(){
+        return this.nombreApellidos + "," + this.carne + "," + this.correo + "," + this.telefono + "," + this.nickName + "," + this.tipoEstudiante;
+    }//llamarArchivoCSV
+
 }//fin clase

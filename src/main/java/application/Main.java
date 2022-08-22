@@ -20,6 +20,7 @@ import java.util.List;
 public class Main extends Application {
     @Override
     public void start(Stage primaryStage) {
+        System.out.println("star 1");
         BorderPane root = new BorderPane();
 
         TableView table = new TableView<Estudiante>();
@@ -41,6 +42,16 @@ public class Main extends Application {
         TableColumn tipoEstudianteColumn = new TableColumn<Estudiante,String>("Tipo Estudiante");
         tipoEstudianteColumn.setCellValueFactory(new PropertyValueFactory<Estudiante,String>("tipoEstudiante"));
 
+        TableColumn promedioExamenesColumn = new TableColumn<Estudiante,String>("Promedio de Examenes");
+        promedioExamenesColumn.setCellValueFactory(new PropertyValueFactory<Estudiante,String>("promedioExamenes"));
+
+        TableColumn promedioQuicesColumn = new TableColumn<Estudiante,String>("Promedio Quices");
+        promedioQuicesColumn.setCellValueFactory(new PropertyValueFactory<Estudiante,String>("promedioQuices"));
+
+        TableColumn promedioTareasColumn = new TableColumn<Estudiante,String>("Promedio Tareas");
+        promedioTareasColumn.setCellValueFactory(new PropertyValueFactory<Estudiante,String>("promedioTareas"));
+
+
 
         table.getColumns().add(carneColumn);
         table.getColumns().add(nombreApellidosColumn);
@@ -48,14 +59,33 @@ public class Main extends Application {
         table.getColumns().add(telefonoColumn);
         table.getColumns().add(nicknameColumn);
         table.getColumns().add(tipoEstudianteColumn);
+        table.getColumns().add(promedioExamenesColumn);
+        table.getColumns().add(promedioQuicesColumn);
+        table.getColumns().add(promedioTareasColumn);
 
         table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+        System.out.println("star 2");
 
-        table.getItems().add(new Estudiante("Sebastian Naranjo","2022437585","naranjomoras@gmail.com","72968521","Naranjo","A"));
-        table.getItems().add(new Estudiante("Luis Barboza","2022754385","barbozaLuis@gmail.com","84539591","Luis","B"));
-        table.getItems().add(new Estudiante("Wainer Chavarria","2022789345","ChavarriaWainer@gmail.com","88967024","Way","B"));
-        table.getItems().add(new Estudiante("Daniza Granados","2022123456","DanizaGranados@gmail.com","83766048","Dani","A"));
-        table.getItems().add(new Estudiante("Steven Jafet","2022863845","sjnaranjo@gmail.com","87696359","Steven","B"));
+
+        List<Estudiante> estudiantes = ImportarDatos();
+
+        for (Estudiante est2 : estudiantes){
+            table.getItems().add(new Estudiante(est2.getNombreApellidos(), est2.getCarne(), est2.getCorreo(),est2.getTelefono(),est2.getNickName(), est2.getTipoEstudiante(),est2.getPromedioExamenes(),est2.getPromedioQuices(),est2.getPromedioTareas()));
+
+            System.out.println(est2.getNombreApellidos() + " , " + est2.getCarne() + " , " +
+                    est2.getCorreo() + " , " + est2.getTelefono() + " , " +
+                    est2.getNickName() + " , " + est2.getTipoEstudiante() + " , " + est2.getPromedioExamenes()+
+                    " , " + est2.getPromedioQuices() + " , " + est2.getPromedioTareas());
+
+        }//for
+        System.out.println("star 3");
+
+//        table.getItems().add(new Estudiante("Sebastian","2022437585", "naranjomoras@gmail.com","72968521","Naranjo", "A","90","70","80"));
+//        table.getItems().add(new Estudiante("Luis Barboza","2022754385","barbozaLuis@gmail.com","84539591","Luis","B","90","70","80"));
+//        table.getItems().add(new Estudiante("Wainer Chavarria","2022789345","ChavarriaWainer@gmail.com","88967024","Way","B","90","70","80"));
+//        table.getItems().add(new Estudiante( "Daniza Granados","2022123456","DanizaGranados@gmail.com","83766048","Dani","A","90","70","80"));
+//        table.getItems().add(new Estudiante("Steven Jafet","2022863845","sjnaranjo@gmail.com","87696359","Steven","B","90","70","80"));
+//        System.out.println("star 4");
 
 
         root.setCenter(table);
@@ -66,6 +96,8 @@ public class Main extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
     }//start
+
+
 
     public static  void ExportarCSV(List<Estudiante> estudiantes) {
         String salidaArchivo = "Estudiantes.csv";
@@ -85,6 +117,9 @@ public class Main extends Application {
             salidaCSV.write("Telefono");
             salidaCSV.write("NickName");
             salidaCSV.write("Tipo de Estudiante");
+            salidaCSV.write("Promedio de Examenes");
+            salidaCSV.write("Promedio Quices");
+            salidaCSV.write("Promedio Tareas");
 
             salidaCSV.endRecord();
 
@@ -95,6 +130,9 @@ public class Main extends Application {
                 salidaCSV.write(est.getTelefono());
                 salidaCSV.write(est.getNickName());
                 salidaCSV.write(est.getTipoEstudiante());
+                salidaCSV.write(est.getPromedioExamenes());
+                salidaCSV.write(est.getPromedioQuices());
+                salidaCSV.write(est.getPromedioTareas());
 
                 salidaCSV.endRecord();
 
@@ -108,9 +146,10 @@ public class Main extends Application {
 
     }//exportarCSV
 
-    public static void  ImportarDatos(){
+    public static List<Estudiante> ImportarDatos(){
+
+        List<Estudiante> estudiantes = new ArrayList<Estudiante>();
         try{
-            List<Estudiante> estudiantes = new ArrayList<Estudiante>();
             CsvReader leerEstudiantes = new CsvReader("Estudiantes.csv");
             leerEstudiantes.readHeaders();
 
@@ -121,21 +160,24 @@ public class Main extends Application {
                 String telefono = leerEstudiantes.get(3);
                 String nickName = leerEstudiantes.get(4);
                 String tipoEstudiante = leerEstudiantes.get(5);
+                String promedioExamenes = leerEstudiantes.get(6);
+                String promedioQuices = leerEstudiantes.get(7);
+                String promedioTareas = leerEstudiantes.get(8);
 
-                estudiantes.add(new Estudiante(nombreApellidos,carne,correo,telefono,nickName,tipoEstudiante));
+                estudiantes.add(new Estudiante(nombreApellidos,carne,correo,telefono,nickName,tipoEstudiante,promedioExamenes,promedioQuices,promedioTareas));
 
 
             }//while
 
             leerEstudiantes.close();
 
-            for (Estudiante est2 : estudiantes){
-                System.out.println(est2.getNombreApellidos() + " , " + est2.getCarne() + " , " +
-                        est2.getCorreo() + " , " + est2.getTelefono() + " , " +
-                        est2.getNickName() + " , " + est2.getTipoEstudiante());
-
-            }
-
+//            for (Estudiante est2 : estudiantes){
+//                System.out.println(est2.getNombreApellidos() + " , " + est2.getCarne() + " , " +
+//                        est2.getCorreo() + " , " + est2.getTelefono() + " , " +
+//                        est2.getNickName() + " , " + est2.getTipoEstudiante() + " , " + est2.getPromedioExamenes()+
+//                        " , " + est2.getPromedioQuices() + " , " + est2.getPromedioTareas());
+//
+//            }//for
 
         }catch(FileNotFoundException e){
             e.printStackTrace();
@@ -143,6 +185,7 @@ public class Main extends Application {
             e.printStackTrace();
 
         }//try-catch
+        return estudiantes;
     }//ImportarDatos
 
 
@@ -151,34 +194,17 @@ public class Main extends Application {
 
         List<Estudiante> estudiantes = new ArrayList<Estudiante>();
 
-        estudiantes.add(new Estudiante("Sebastian Naranjo","2022437585","naranjomoras@gmail.com","72968521","Naranjo","A"));
-        estudiantes.add(new Estudiante("Luis Barboza","2022754385","barbozaLuis@gmail.com","84539591","Luis","B"));
-        estudiantes.add(new Estudiante("Wainer Chavarria","2022789345","ChavarriaWainer@gmail.com","88967024","Way","B"));
-        estudiantes.add(new Estudiante("Daniza Granados","2022123456","DanizaGranados@gmail.com","83766048","Dani","A"));
-        estudiantes.add(new Estudiante("Steven Jafet","2022863845","sjnaranjo@gmail.com","87696359","Steven","B"));
+        estudiantes.add(new Estudiante("Sebastian Naranjo","2022437585","naranjomoras@gmail.com","72968521","Naranjo","A","90","70","80"));
+        estudiantes.add(new Estudiante("Luis Barboza","2022754385","barbozaLuis@gmail.com","84539591","Luis","B","90","70","80"));
+        estudiantes.add(new Estudiante("Wainer Chavarria","2022789345","ChavarriaWainer@gmail.com","88967024","Way","B","90","70","80"));
+        estudiantes.add(new Estudiante("Daniza Granados","2022123456","DanizaGranados@gmail.com","83766048","Dani","A","90","70","80"));
+        estudiantes.add(new Estudiante("Steven Jafet","2022863845","sjnaranjo@gmail.com","87696359","Steven","B","90","70","80"));
+        estudiantes.add(new Estudiante("Maria Eugenia Mora Garro","2022936587","eugemoga@gmail.com","89459498","Maru","A","90","70","80"));
+        estudiantes.add(new Estudiante("Wallter Guillermo Naranjo Umaña","2022145748","wgnu@gmail.com","87318048","Memo","B","80","40","70"));
 
-                ExportarCSV(estudiantes);
-                ImportarDatos();
+        ExportarCSV(estudiantes);
+        //ImportarDatos();
 
-        /*
-        Scanner sc = new Scanner(System.in);
-        ArrayList<Estudiante> newStudent = listaEstudiantes(sc);
-        File arhivoCSV = new File("./ejemplo_TEq.csv");
-        try (FileWriter editor = new FileWriter(arhivoCSV);){
-            for (Estudiante estudiante : newStudent){
-                editor.write(estudiante.llamarArchivoCSV() + "\n");
-
-            }//for
-
-        } catch(Exception e){
-            System.out.println("Se produjo un error");
-
-        }//try-catch
-
-
-        LectorCSV archivo = new LectorCSV();
-        archivo.leerArhivocsv("./ejemplo_TEq.csv");
-         */
-        //launch();
+        launch();
     }//fin main
 }//fin clase
