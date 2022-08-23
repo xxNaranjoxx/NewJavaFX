@@ -41,15 +41,6 @@ public class Main extends Application {
         TableColumn tipoEstudianteColumn = new TableColumn<Estudiante,String>("Tipo Estudiante");
         tipoEstudianteColumn.setCellValueFactory(new PropertyValueFactory<Estudiante,String>("tipoEstudiante"));
 
-        TableColumn notaProyecto1Column = new TableColumn<Estudiante,String>("Nota Proyecto 1");
-        notaProyecto1Column.setCellValueFactory(new PropertyValueFactory<Estudiante,String>("notaProyecto1"));
-
-        TableColumn notaProyecto2Column = new TableColumn<Estudiante,String>("Nota Proyecto 2");
-        notaProyecto2Column.setCellValueFactory(new PropertyValueFactory<Estudiante,String>("notaProyecto2"));
-
-        TableColumn notaProyecto3Column = new TableColumn<Estudiante,String>("Nota Proyecto 3");
-        notaProyecto3Column.setCellValueFactory(new PropertyValueFactory<Estudiante,String>("notaProyecto3"));
-
         TableColumn promedioExamenesColumn = new TableColumn<Estudiante,String>("Promedio de Examenes");
         promedioExamenesColumn.setCellValueFactory(new PropertyValueFactory<Estudiante,String>("promedioExamenes"));
 
@@ -61,8 +52,10 @@ public class Main extends Application {
 
         TableColumn promedioProyectosColumn = new TableColumn<Estudiante,String>("Promedio Proyectos");
         promedioProyectosColumn.setCellValueFactory(new PropertyValueFactory<Estudiante,String>("promedioProyectos"));
+
         TableColumn promedioEvaluacionesColumn = new TableColumn<Estudiante,String>("Promedio Evaluaciones");
         promedioEvaluacionesColumn.setCellValueFactory(new PropertyValueFactory<Estudiante,String>("promedioEvaluaciones"));
+
         TableColumn promedioFinalColumn = new TableColumn<Estudiante,String>("Promedio Final");
         promedioFinalColumn.setCellValueFactory(new PropertyValueFactory<Estudiante,String>("promedioFinal"));
 
@@ -74,9 +67,6 @@ public class Main extends Application {
         table.getColumns().add(telefonoColumn);
         table.getColumns().add(nicknameColumn);
         table.getColumns().add(tipoEstudianteColumn);
-        table.getColumns().add(notaProyecto1Column);
-        table.getColumns().add(notaProyecto2Column);
-        table.getColumns().add(notaProyecto3Column);
         table.getColumns().add(promedioExamenesColumn);
         table.getColumns().add(promedioQuicesColumn);
         table.getColumns().add(promedioTareasColumn);
@@ -91,13 +81,12 @@ public class Main extends Application {
         List<Estudiante> estudiantes = ImportarDatos();
 
         for (Estudiante est2 : estudiantes){
-            table.getItems().add(new Estudiante(est2.getNombreApellidos(), est2.getCarne(), est2.getCorreo(),est2.getTelefono(),est2.getNickName(), est2.getTipoEstudiante(), est2.getNotaProyecto1(),
-                    est2.getNotaProyecto2(), est2.getNotaProyecto3(), est2.getPromedioExamenes(),est2.getPromedioQuices(),est2.getPromedioTareas(), est2.getPromedioProyectos(), est2.getPromedioEvaluaciones(),est2.getPromedioFinal()));
+            table.getItems().add(new Estudiante(est2.getNombreApellidos(), est2.getCarne(), est2.getCorreo(),est2.getTelefono(),est2.getNickName(), est2.getTipoEstudiante(),
+                     est2.getPromedioExamenes(),est2.getPromedioQuices(),est2.getPromedioTareas(), est2.getPromedioProyectos(), est2.getPromedioEvaluaciones(),est2.getPromedioFinal()));
 
             System.out.println(est2.getNombreApellidos() + " , " + est2.getCarne() + " , " +
                     est2.getCorreo() + " , " + est2.getTelefono() + " , " +
-                    est2.getNickName() + " , " + est2.getTipoEstudiante() + " , " + est2.getNotaProyecto1() +" , " +
-                    " , " + est2.getNotaProyecto2() + " , " + est2.getNotaProyecto3() + " , " + est2.getPromedioExamenes()+
+                    est2.getNickName() + " , " + est2.getTipoEstudiante() + " , " + est2.getPromedioExamenes()+
                     " , " + est2.getPromedioQuices() + " , " + est2.getPromedioTareas() + " , " + est2.getPromedioProyectos() + " , " +
                     est2.getPromedioEvaluaciones() + " , " + est2.getPromedioFinal());
 
@@ -140,9 +129,6 @@ public class Main extends Application {
             salidaCSV.write("Telefono");
             salidaCSV.write("NickName");
             salidaCSV.write("Tipo de Estudiante");
-            salidaCSV.write("Nota Proyecto 1");
-            salidaCSV.write("Nota Proyecto 2");
-            salidaCSV.write("Nota Proyecto 3");
             salidaCSV.write("Promedio de Examenes");
             salidaCSV.write("Promedio Quices");
             salidaCSV.write("Promedio Tareas");
@@ -159,9 +145,6 @@ public class Main extends Application {
                 salidaCSV.write(String.valueOf(est.getTelefono()));
                 salidaCSV.write(est.getNickName());
                 salidaCSV.write(est.getTipoEstudiante());
-                salidaCSV.write(String.valueOf(est.getNotaProyecto1()));
-                salidaCSV.write(String.valueOf(est.getNotaProyecto2()));
-                salidaCSV.write(String.valueOf(est.getNotaProyecto3()));
                 salidaCSV.write(String.valueOf(est.getPromedioExamenes()));
                 salidaCSV.write(String.valueOf(est.getPromedioQuices()));
                 salidaCSV.write(String.valueOf(est.getPromedioTareas()));
@@ -195,18 +178,14 @@ public class Main extends Application {
                 String telefono = leerEstudiantes.get(3);
                 String nickName = leerEstudiantes.get(4);
                 String tipoEstudiante = leerEstudiantes.get(5);
-                String notaProyecto1 = leerEstudiantes.get(6);
-                String notaProyecto2 = leerEstudiantes.get(7);
-                String notaProyecto3 = leerEstudiantes.get(8);
-                String promedioExamenes = leerEstudiantes.get(9);
-                String promedioQuices = leerEstudiantes.get(10);
-                String promedioTareas = leerEstudiantes.get(11);
-                String promedioProyectos = leerEstudiantes.get(12);
-                String promedioEvaluaciones = leerEstudiantes.get(13);
-                String promedioFinal = leerEstudiantes.get(14);
+                String promedioExamenes = leerEstudiantes.get(6);
+                String promedioQuices = leerEstudiantes.get(7);
+                String promedioTareas = leerEstudiantes.get(8);
+                String promedioProyectos = leerEstudiantes.get(9);
+                String promedioEvaluaciones = leerEstudiantes.get(10);
+                String promedioFinal = leerEstudiantes.get(11);
 
-                estudiantes.add(new Estudiante(nombreApellidos,Integer.parseInt(carne),correo,Integer.parseInt(telefono),nickName,tipoEstudiante,
-                        Integer.parseInt(notaProyecto1),Integer.parseInt(notaProyecto2),Integer.parseInt(notaProyecto3),Integer.parseInt(promedioExamenes),Integer.parseInt(promedioQuices),Integer.parseInt(promedioTareas),Integer.parseInt(promedioProyectos),Integer.parseInt(promedioEvaluaciones),Integer.parseInt(promedioFinal)));
+                estudiantes.add(new Estudiante(nombreApellidos,Integer.parseInt(carne),correo,Integer.parseInt(telefono),nickName,tipoEstudiante,Integer.parseInt(promedioExamenes),Integer.parseInt(promedioQuices),Integer.parseInt(promedioTareas),Integer.parseInt(promedioProyectos),Integer.parseInt(promedioEvaluaciones),Integer.parseInt(promedioFinal)));
 
 
             }//while
@@ -233,7 +212,9 @@ public class Main extends Application {
 
 
     public static void main(String[] args) {
-        Estudiante_Hijo promedioEstudiante1 = new Estudiante_Hijo("Sebastian Naranjo",2022437585,"naranjomoras@gmail.com",72968521,"Naranjo","A",90,70,80,90,80,100,70,50,40,50,100,30,90,50,90,50,80);
+
+
+        Estudiante_Hijo promedioEstudiante1 = new Estudiante_Hijo("Sebastian Naranjo",2022437585,"naranjomoras@gmail.com",72968521,"Naranjo","A",90,70,80,0,0,0,70,50,40,50,100,30,90,50,0,0,0);
         int nota_promedioExamenes = promedioEstudiante1.promedioExamenes();
         int nota_promedioQuices = promedioEstudiante1.promedioQuices();
         int nota_promedioTareas = promedioEstudiante1.promedioTareas();
@@ -242,7 +223,7 @@ public class Main extends Application {
         int nota_promedioFinal = promedioEstudiante1.notaPromedioFinal();
 
 
-        Estudiante_Hijo promedioEstudiante2 = new Estudiante_Hijo("Luis Barboza",2022754385,"barbozaLuis@gmail.com",84539591,"Luis","B",90,70,80,90,80,100,100,95,85,75,60,100,100,98,80,80,80);
+        Estudiante_Hijo promedioEstudiante2 = new Estudiante_Hijo("Luis Barboza",2022754385,"barbozaLuis@gmail.com",84539591,"Luis","B",90,70,80,80,40,80,100,95,85,75,60,100,100,98,0,0,0);
         int nota_promedioExamenes2 = promedioEstudiante2.promedioExamenes();
         int nota_promedioQuices2 = promedioEstudiante2.promedioQuices();
         int nota_promedioTareas2 = promedioEstudiante2.promedioTareas();
@@ -251,7 +232,7 @@ public class Main extends Application {
         int nota_promedioFinal2 = promedioEstudiante2.notaPromedioFinal();
 
 
-        Estudiante_Hijo promedioEstudiante3 = new Estudiante_Hijo("Wainer Chavarria",2022789345,"ChavarriaWainer@gmail.com",88967024,"Way","B",90,70,80,90,80,100,50,85,85,30,90,100,75,90,90,90,90);
+        Estudiante_Hijo promedioEstudiante3 = new Estudiante_Hijo("Wainer Chavarria",2022789345,"ChavarriaWainer@gmail.com",88967024,"Way","B",90,70,80,70,90,50,50,85,85,30,90,100,75,90,0,0,0);
         int nota_promedioExamenes3 = promedioEstudiante3.promedioExamenes();
         int nota_promedioQuices3 = promedioEstudiante3.promedioQuices();
         int nota_promedioTareas3 = promedioEstudiante3.promedioTareas();
@@ -277,7 +258,7 @@ public class Main extends Application {
         int nota_promedioFinal5 = promedioEstudiante5.notaPromedioFinal();
 
 
-        Estudiante_Hijo promedioEstudiante6 = new Estudiante_Hijo("Wallter Guillermo Naranjo Umaña",2022145748,"wgnu@gmail.com",87318048,"Memo","B",90,70,80,90,80,100,75,100,75,55,90,45,80,60,50,80,90);
+        Estudiante_Hijo promedioEstudiante6 = new Estudiante_Hijo("Wallter Guillermo Naranjo Umaña",2022145748,"wgnu@gmail.com",87318048,"Memo","B",0,0,0,90,80,100,75,100,75,55,90,45,80,60,50,80,90);
         int nota_promedioExamenes6 = promedioEstudiante6.promedioExamenes();
         int nota_promedioQuices6 = promedioEstudiante6.promedioQuices();
         int nota_promedioTareas6 = promedioEstudiante6.promedioTareas();
@@ -291,12 +272,12 @@ public class Main extends Application {
 
         List<Estudiante> estudiantes = new ArrayList<Estudiante>();
 
-//        estudiantes.add(new Estudiante("Sebastian Naranjo",2022437585,"naranjomoras@gmail.com",72968521,"Naranjo","A",90,90,90,nota_promedioExamenes,nota_promedioQuices,nota_promedioTareas,nota_promedioProyecto,nota_promedioEvaluaciones,nota_promedioFinal));
-//        estudiantes.add(new Estudiante("Luis Barboza",2022754385,"barbozaLuis@gmail.com",84539591,"Luis","B",90,90,90,nota_promedioExamenes2,nota_promedioQuices2,nota_promedioTareas2,nota_promedioProyecto2,nota_promedioEvaluaciones2,nota_promedioFinal2));
-//        estudiantes.add(new Estudiante("Wainer Chavarria",2022789345,"ChavarriaWainer@gmail.com",88967024,"Way","B",90,90,90,nota_promedioExamenes3,nota_promedioQuices3,nota_promedioTareas3,nota_promedioProyecto3,nota_promedioEvaluaciones3,nota_promedioFinal3));
-//        estudiantes.add(new Estudiante("Daniza Granados",2022123456,"DanizaGranados@gmail.com",83766048,"Dani","A",90,90,90,nota_promedioExamenes4,nota_promedioQuices4,nota_promedioTareas4,nota_promedioProyecto4,nota_promedioEvaluaciones4,nota_promedioFinal4));
-//        estudiantes.add(new Estudiante("Maria Eugenia Mora Garro",2022936587,"eugemoga@gmail.com",89459498,"Maru","A",90,90,90,nota_promedioExamenes5,nota_promedioQuices5,nota_promedioTareas5,nota_promedioProyecto5,nota_promedioEvaluaciones5,nota_promedioFinal5));
-//        estudiantes.add(new Estudiante("Wallter Guillermo Naranjo Umaña",2022145748,"wgnu@gmail.com",87318048,"Memo","B",90,90,90,nota_promedioExamenes6,nota_promedioQuices6,nota_promedioTareas6,nota_promedioProyecto6,nota_promedioEvaluaciones6,nota_promedioFinal6));
+        estudiantes.add(new Estudiante("Sebastian Naranjo",2022437585,"naranjomoras@gmail.com",72968521,"Naranjo","A",nota_promedioExamenes,nota_promedioQuices,nota_promedioTareas,nota_promedioProyecto,nota_promedioEvaluaciones,nota_promedioFinal));
+        estudiantes.add(new Estudiante("Luis Barboza",2022754385,"barbozaLuis@gmail.com",84539591,"Luis","B",nota_promedioExamenes2,nota_promedioQuices2,nota_promedioTareas2,nota_promedioProyecto2,nota_promedioEvaluaciones2,nota_promedioFinal2));
+        estudiantes.add(new Estudiante("Wainer Chavarria",2022789345,"ChavarriaWainer@gmail.com",88967024,"Way","B",nota_promedioExamenes3,nota_promedioQuices3,nota_promedioTareas3,nota_promedioProyecto3,nota_promedioEvaluaciones3,nota_promedioFinal3));
+        estudiantes.add(new Estudiante("Daniza Granados",2022123456,"DanizaGranados@gmail.com",83766048,"Dani","A",nota_promedioExamenes4,nota_promedioQuices4,nota_promedioTareas4,nota_promedioProyecto4,nota_promedioEvaluaciones4,nota_promedioFinal4));
+        estudiantes.add(new Estudiante("Maria Eugenia Mora Garro",2022936587,"eugemoga@gmail.com",89459498,"Maru","A",nota_promedioExamenes5,nota_promedioQuices5,nota_promedioTareas5,nota_promedioProyecto5,nota_promedioEvaluaciones5,nota_promedioFinal5));
+        estudiantes.add(new Estudiante("Wallter Guillermo Naranjo Umaña",2022145748,"wgnu@gmail.com",87318048,"Memo","B",nota_promedioExamenes6,nota_promedioQuices6,nota_promedioTareas6,nota_promedioProyecto6,nota_promedioEvaluaciones6,nota_promedioFinal6));
 
         ExportarCSV(estudiantes);
 

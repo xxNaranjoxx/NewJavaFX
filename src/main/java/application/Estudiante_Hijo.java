@@ -1,6 +1,9 @@
 package application;
 
 public class Estudiante_Hijo extends Estudiante {//herencia
+    private int notaProyecto1;
+    private int notaProyecto2;
+    private int notaProyecto3;
     private int notaExamen1;
     private int notaExamen2;
     private int notaQuiz1;
@@ -12,7 +15,10 @@ public class Estudiante_Hijo extends Estudiante {//herencia
 
     public Estudiante_Hijo(String nombreApellidos, int carne, String correo, int telefono, String nickName, String tipoEstudiante, int notaProyecto1, int notaProyecto2, int notaProyecto3, int promedioExamenes, int promedioQuices, int promedioTareas,
                            int notaExamen1,int notaExamen2,int notaQuiz1,int notaQuiz2,int notaQuiz3,int notaTarea1,int notaTarea2,int notaTarea3,int promedioProyectos, int promedioEvaluaciones, int promedioFinal) {
-        super(nombreApellidos, carne, correo, telefono, nickName, tipoEstudiante, notaProyecto1, notaProyecto2, notaProyecto3, promedioExamenes, promedioQuices, promedioTareas, promedioProyectos, promedioEvaluaciones, promedioFinal);
+        super(nombreApellidos, carne, correo, telefono, nickName, tipoEstudiante, promedioExamenes, promedioQuices, promedioTareas, promedioProyectos, promedioEvaluaciones, promedioFinal);
+        this.notaProyecto1 = notaProyecto1;
+        this.notaProyecto2 = notaProyecto2;
+        this.notaProyecto3 = notaProyecto3;
         this.notaExamen1 = notaExamen1;
         this.notaExamen2 = notaExamen2;
         this.notaQuiz1 = notaQuiz1;
@@ -47,7 +53,7 @@ public class Estudiante_Hijo extends Estudiante {//herencia
     }//notaPromedio
 
     public int notaPromedioProyecto(){
-        return (this.getNotaProyecto1() + this.getNotaProyecto2() + this.getNotaProyecto3())/3;
+        return (this.notaProyecto1 + this.notaProyecto2 + this.notaProyecto3)/3;
     }
 
     public int getNotaExamen1() {

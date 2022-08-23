@@ -7,11 +7,7 @@ public class Estudiante {
     private String correo;//encapsulamiento
     private int telefono;//encapsulamiento
     private String nickName;//encapsulamiento
-    private String tipoEstudiante;//encapsulamiento
-
-    private int notaProyecto1;
-    private int notaProyecto2;
-    private int notaProyecto3;
+    private String tipoEstudiante;//encapsulamiento}
     private  int promedioExamenes;
     private int promedioQuices;
     private int promedioTareas;
@@ -19,16 +15,13 @@ public class Estudiante {
     private int promedioEvaluaciones;
     private int promedioFinal;
 
-    public Estudiante(String nombreApellidos, int carne, String correo, int telefono, String nickName, String tipoEstudiante,int notaProyecto1,int notaProyecto2, int notaProyecto3, int promedioExamenes, int promedioQuices, int promedioTareas, int promedioProyectos, int promedioEvaluaciones, int promedioFinal) {
+    public Estudiante(String nombreApellidos, int carne, String correo, int telefono, String nickName, String tipoEstudiante, int promedioExamenes, int promedioQuices, int promedioTareas, int promedioProyectos, int promedioEvaluaciones, int promedioFinal) {
         this.nombreApellidos = nombreApellidos;
         this.carne = carne;
         this.correo = correo;
         this.telefono = telefono;
         this.nickName = nickName;
         this.tipoEstudiante = tipoEstudiante;
-        this.notaProyecto1 = notaProyecto1;
-        this.notaProyecto2 = notaProyecto2;
-        this.notaProyecto3 = notaProyecto3;
         this.promedioExamenes = promedioExamenes;
         this.promedioQuices = promedioQuices;
         this.promedioTareas = promedioTareas;
@@ -85,30 +78,6 @@ public class Estudiante {
 
     public void setTipoEstudiante(String tipoEstudiante) {
         this.tipoEstudiante = tipoEstudiante;
-    }
-
-    public int getNotaProyecto1() {
-        return notaProyecto1;
-    }
-
-    public void setNotaProyecto1(int notaProyecto1) {
-        this.notaProyecto1 = notaProyecto1;
-    }
-
-    public int getNotaProyecto2() {
-        return notaProyecto2;
-    }
-
-    public void setNotaProyecto2(int notaProyecto2) {
-        this.notaProyecto2 = notaProyecto2;
-    }
-
-    public int getNotaProyecto3() {
-        return notaProyecto3;
-    }
-
-    public void setNotaProyecto3(int notaProyecto3) {
-        this.notaProyecto3 = notaProyecto3;
     }
 
     public int getPromedioExamenes() {
