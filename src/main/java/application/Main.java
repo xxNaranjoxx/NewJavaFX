@@ -280,6 +280,7 @@ public class Main extends Application {
         estudiantes.add(new Estudiante("Wallter Guillermo Naranjo Umaña",2022145748,"wgnu@gmail.com",87318048,"Memo","B",nota_promedioExamenes6,nota_promedioQuices6,nota_promedioTareas6,nota_promedioProyecto6,nota_promedioEvaluaciones6,nota_promedioFinal6));
 
         ExportarCSV(estudiantes);
+       // ImportarDatos();
 
         launch();
 

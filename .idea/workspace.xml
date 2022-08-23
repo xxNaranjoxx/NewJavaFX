@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5bc48b74-924f-4e87-9c22-b0fd03f18a70" name="Changes" comment="añadi promedios">
+    <list default="true" id="5bc48b74-924f-4e87-9c22-b0fd03f18a70" name="Changes" comment="Promedios aareglados">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/Estudiante.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/Estudiante.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/Estudiante_Hijo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/Estudiante_Hijo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/application/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -137,7 +135,14 @@
       <option name="project" value="LOCAL" />
       <updated>1661205052421</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Promedios aareglados">
+      <created>1661221828703</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1661221828703</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -158,7 +163,8 @@
     <MESSAGE value="Imprimo el archivo scv en consola" />
     <MESSAGE value="Inserto el archivo CSV a la GUI" />
     <MESSAGE value="añadi promedios" />
-    <option name="LAST_COMMIT_MESSAGE" value="añadi promedios" />
+    <MESSAGE value="Promedios aareglados" />
+    <option name="LAST_COMMIT_MESSAGE" value="Promedios aareglados" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
